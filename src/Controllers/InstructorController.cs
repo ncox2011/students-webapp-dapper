@@ -131,10 +131,10 @@ namespace Workforce.Controllers
             {
                 string sql = $@"
                 INSERT INTO Instructor
-                (Id, FirstName, LastName, SlackHandle, Specialty, CohortId)
+                ( FirstName, LastName, SlackHandle, Specialty, CohortId)
                 VALUES
-                (null
-                    , '{instructor.FirstName}'
+                (
+                     '{instructor.FirstName}'
                     , '{instructor.LastName}'
                     , '{instructor.SlackHandle}'
                     , '{instructor.Specialty}'

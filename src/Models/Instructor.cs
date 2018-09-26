@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,20 +9,20 @@ namespace Workforce.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name="First Name")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required]
-        [Display(Name ="Last Name")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name="Slack Handle")]
+        [Display(Name = "Slack Handle")]
         [MaxLength(20)]
         public string SlackHandle { get; set; }
 
         [Required]
-        [Display(Name ="Specialty")]
+        [Display(Name = "Specialty")]
         public string Specialty { get; set; }
 
         [Required]
@@ -38,5 +39,10 @@ namespace Workforce.Models
                 return $"{FirstName} {LastName}";
             }
         }
+    
+    internal bool ContainsKey(int id)
+    {
+        throw new NotImplementedException();
     }
+}
 }
