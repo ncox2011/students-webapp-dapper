@@ -107,6 +107,16 @@ INSERT INTO Instructor
 
 INSERT INTO Instructor
 (FirstName, LastName, SlackHandle, Specialty, CohortId)
+    SELECT 'Jordan',
+            'Castello',
+            '@jordancastello',
+            'memes',
+            c.Id
+    FROM Cohort c WHERE c.Name = 'Day Cohort 13'
+	;
+
+INSERT INTO Instructor
+(FirstName, LastName, SlackHandle, Specialty, CohortId)
     SELECT 'Jisie',
             'David',
             '@jisie',

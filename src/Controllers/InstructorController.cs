@@ -138,7 +138,7 @@ namespace Workforce.Controllers
                     , '{instructor.LastName}'
                     , '{instructor.SlackHandle}'
                     , '{instructor.Specialty}'
-                    , '{instructor.Cohort.Id}'
+                    , '{instructor.CohortId}'
                 )
                 ";
                 using (IDbConnection conn = Connection)
@@ -147,7 +147,7 @@ namespace Workforce.Controllers
 
                     if (rowsAffected > 0)
                     {
-                        return RedirectToAction(nameof(Index));
+                        return RedirectToAction(nameof (Index));
                     }
                 }
             }
@@ -156,7 +156,7 @@ namespace Workforce.Controllers
             using (IDbConnection conn = Connection)
             {
                 IEnumerable<Cohort> cohorts = (await conn.QueryAsync<Cohort>("SELECT Id, Name FROM cohort")).ToList();
-                ViewData["CohortId"] = await CohortList(instructor.Cohort.Id);
+                ViewData["CohortId"] = await CohortList(instructor.CohortId);
                 return View(instructor);
             }
         }
@@ -216,7 +216,7 @@ namespace Workforce.Controllers
                     LastName = '{model.Instructor.LastName}',
                     SlackHandle = '{model.Instructor.SlackHandle}',
                     Specialty = '{model.Instructor.Specialty}',
-                    CohortId =  '{model.Instructor.Cohort.Id}'
+                    CohortId =  '{model.Instructor.CohortId}'
                 WHERE Id = {id}";
 
                 using (IDbConnection conn =Connection)

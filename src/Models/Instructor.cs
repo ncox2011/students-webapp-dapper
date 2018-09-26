@@ -24,6 +24,9 @@ namespace Workforce.Models
         [Display(Name ="Specialty")]
         public string Specialty { get; set; }
 
+        [Required]
+        public int CohortId { get; set; }
+
         public Cohort Cohort { get; set; }
 
 
